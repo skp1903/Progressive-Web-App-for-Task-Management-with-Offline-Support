@@ -1,0 +1,88 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.pizza {
+  border-radius: 50%;
+}
+
+.swr {
+  aspect-ratio: 1 / 1;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa); /* Semi-transparent blue */
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa); /* Semi-transparent blue-green */
+}
+.logo.swr:hover {
+  filter: drop-shadow(0 0 1em #000000); /* Black */
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(3) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.container {
+  padding: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.time-card {
+  width: 12em;
+  padding: 0.5em;
+  border: 1px solid #101010; /* Dark blue */
+  border-radius: 0.4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.6em;
+}
+
+.status {
+  color: #101010; /* Dark blue */
+}
+
+.error {
+  border: 1px solid red; /* Bright Red */
+  color: red; /* Bright Red */
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px;
+}
+
+/* responsiveness */
+@media (max-width: 600px) {
+  .logo {
+    height: 3em;
+  }
+
+  .time-card {
+    padding: 0.7em;
+    width: 7em;
+  }
+}
