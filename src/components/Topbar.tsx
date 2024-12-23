@@ -1,4 +1,3 @@
-
 import React from "react";
 import { MdArrowDropDown } from "react-icons/md";
 import { Avatar, Dropdown, Space } from "antd";
@@ -7,49 +6,53 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { signOut } from "@/util/supabase/action";
 
-const TopBar = () => {
-    const router = useRouter()
-
+const TopBar = ({ user }: { user: string }) => {
+    const router = useRouter();
 
     const handleLogout = async () => {
         signOut().then(() => {
             router.push("/");
-        })
+        });
     };
+
     return (
-        <div className="flex h-[70px] gap-2 justify-between items-center p-2 shadow-sm">
+        <div className="flex h-[70px] justify-between items-center px-4 shadow-lg bg-gradient-to-r from-blue-600 to-blue-800">
+            {/* Logo or Title */}
             <div
                 onClick={() => {
                     router.push("/activity");
                 }}
+                className="text-white text-xl font-bold cursor-pointer hover:opacity-90"
             >
-
+                Dashboard
             </div>
-            <div className="flex items-center gap-4 md:gap-[1.8rem]">
-                {/* <FaEnvelope className="text-[20px] text-[text-[#3F4257]] cursor-pointer" />
-        <IoNotifications className="text-[20px] text-[text-[#3F4257]] cursor-pointer" /> */}
 
+            {/* User Info */}
+            <div className="flex items-center gap-4">
                 <div className="flex items-center gap-3">
-                    <Avatar size={40} src={<Image
-                        src="https://www.w3schools.com/howto/img_avatar.png"
-                        alt="Avatar"
-                        width={30}
-                        height={30}
+                    <Avatar
+                        size={40}
+                        src={
+                            <Image
+                                src="https://www.w3schools.com/howto/img_avatar.png"
+                                alt="Avatar"
+                                width={30}
+                                height={30}
+                            />
+                        }
+                    />
 
-                    />} />
-
-                    <div className="flex items-center gap-2 ">
+                    <div className="flex items-center gap-2 text-white">
                         <Space size="middle">
                             <Dropdown
-                                disabled
-                                placement="bottom"
+                                placement="bottomRight"
                                 menu={{
                                     items: [
                                         {
                                             key: "2",
                                             label: (
                                                 <span
-                                                    className="flex items-center gap-2 text-red-600"
+                                                    className="flex items-center gap-2 text-red-600 hover:text-red-400"
                                                     onClick={handleLogout}
                                                 >
                                                     <FiLogOut className="text-[18px]" /> Logout
@@ -59,11 +62,9 @@ const TopBar = () => {
                                     ],
                                 }}
                             >
-                                <div className="flex items-center gap-2 cursor-pointer">
-                                    <h3 className="text-[18px] font-medium text-[#3F4257]">
-                                        John Doe
-                                    </h3>
-                                    <MdArrowDropDown className="text-[20px] text-[#3F4257]" />
+                                <div className="flex items-center gap-2 cursor-pointer hover:opacity-90">
+                                    <h3 className="text-[18px] font-medium">{user}</h3>
+                                    <MdArrowDropDown className="text-[20px]" />
                                 </div>
                             </Dropdown>
                         </Space>

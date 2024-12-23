@@ -32,16 +32,16 @@ export const taskData = [
     {
         title: "Fix remote Server",
         id: "7",
-        column: "backlog",
+        column: "not done",
     },
     {
         title: "Fix responsive design",
         id: "8",
-        column: "backlog",
+        column: "not done",
     }, {
         title: "Research System Design",
         id: "9",
-        column: "backlog",
+        column: "not done",
     }
 
     // done

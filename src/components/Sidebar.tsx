@@ -1,8 +1,5 @@
-
 import React, { useEffect, useState } from "react";
 import { Layout, Menu, theme } from "antd";
-
-
 import { bottomSidebarItems, topSidebarItems } from "@/shared/data/sidebarItems";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -38,90 +35,42 @@ const Sidebar = (): JSX.Element => {
                 style={{ padding: "24px 0", background: "#fff" }}
                 className="flex flex-col h-screen top-0 sticky"
             >
-                <Sider style={{ background: colorBgContainer }} width={250}>
-                    <>
-                        <Menu
-                            onClick={({ key }) => handleMenuClick(key)}
-                            mode="inline"
-                            className="flex flex-col"
-                            selectedKeys={selectedKeys}
-                            defaultSelectedKeys={["/activity"]}
-                        >
-                            {topSidebarItems.map((item) => {
-                                // if (item?.items ) {
-                                //     return (
-                                //         <Menu.SubMenu
-                                //             className="text-primaryColor"
-                                //             key={item.key}
-                                //             icon={item.icon}
-                                //             title={item.title}
-                                //         >
-                                //             {item.items.map((child) => (
-                                //                 <Menu.Item
-                                //                     className="text-primaryColor"
-                                //                     key={child.key}
-                                //                     icon={child.icon}
-                                //                 >
-                                //                     {child.title}
-                                //                 </Menu.Item>
-                                //             ))}
-                                //         </Menu.SubMenu>
-                                //     );
-                                // }
-                                return (
-                                    <Menu.Item
-                                        key={item.key}
-                                        icon={item.icon}
-                                        disabled={item.disabled}
-                                    >
-                                        <span className="sidebar_style">{item.title}</span>
-                                    </Menu.Item>
-                                );
-                            })}
-                        </Menu>
-                    </>
-                    <>
-                        <Menu
-                            onClick={({ key }) => handleMenuClick(key)}
-                            mode="inline"
-                            className="flex flex-col mt-[2rem]"
-                            selectedKeys={selectedKeys}
-                            defaultSelectedKeys={["/dashboard"]}
-                        >
-                            <span className="text-[14px] px-[1.8rem] py-[1.5rem] sidebar_style">Account</span>
-                            {bottomSidebarItems.map((item) => {
-                                // if (item?.items ) {
-                                //     return (
-                                //         <Menu.SubMenu
-                                //             className="text-primaryColor"
-                                //             key={item.key}
-                                //             icon={item.icon}
-                                //             title={item.title}
-                                //         >
-                                //             {item.items.map((child) => (
-                                //                 <Menu.Item
-                                //                     className="text-primaryColor"
-                                //                     key={child.key}
-                                //                     icon={child.icon}
-                                //                 >
-                                //                     {child.title}
-                                //                 </Menu.Item>
-                                //             ))}
-                                //         </Menu.SubMenu>
-                                //     );
-                                // }
-                                return (
-                                    <Menu.Item
-                                        key={item.key}
-                                        icon={item.icon}
-                                        disabled={item.disabled}
-                                    >
-                                        <span className="sidebar_style">{item.title}</span>
-                                    </Menu.Item>
-                                );
-                            })}
-                        </Menu>
-                    </>
+                <Sider style={{ background: "#ADD8E6" }} width={250}>
+                    <Menu
+                        onClick={({ key }) => handleMenuClick(key)}
+                        mode="inline"
+                        className="flex flex-col"
+                        selectedKeys={selectedKeys}
+                        defaultSelectedKeys={["/activity"]}
+                    >
+                        {topSidebarItems.map((item) => (
+                            <Menu.Item
+                                key={item.key}
+                                icon={item.icon}
+                                disabled={item.disabled}
+                            >
+                                <span className="sidebar_style" style={{ color: "#0000FF" }}>{item.title}</span>
+                            </Menu.Item>
+                        ))}
+                    </Menu>
+                    <Menu
+                        onClick={({ key }) => handleMenuClick(key)}
+                        mode="inline"
+                        className="flex flex-col mt-[2rem]"
+                        selectedKeys={selectedKeys}
+                        defaultSelectedKeys={["/dashboard"]}
+                    >
+                        <span className="text-[14px] px-[1.8rem] py-[1.5rem] sidebar_style" style={{ color: "#0000FF" }}>Account</span>
+                        {bottomSidebarItems.map((item) => (
+                            <Menu.Item
+                                key={item.key}
+                                icon={item.icon}
+                                disabled={item.disabled}
+                            >
+                                <span className="sidebar_style" style={{ color: "#0000FF" }}>{item.title}</span>
+                            </Menu.Item>
+                        ))}
+                    </Menu>
                 </Sider>
             </Layout>
         </div>

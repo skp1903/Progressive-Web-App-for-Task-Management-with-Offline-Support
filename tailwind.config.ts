@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primaryColor: "#333333",
+        primaryColor: "#ADD8E6",  // Light Blue
         whiteColor: "#ffffff",
         baseColor: "#0F376A"
       },
@@ -22,4 +22,5 @@ const config: Config = {
   },
   plugins: [],
 };
+
 export default config;
